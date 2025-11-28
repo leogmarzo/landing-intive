@@ -774,8 +774,7 @@
         }
 
         .impact-metric {
-            text-align: center;
-            padding: 3rem 2rem;
+            padding: 2.5rem 2rem;
             position: relative;
         }
 
@@ -800,26 +799,51 @@
             }
         }
 
-        .metric-number {
-            font-size: clamp(4rem, 8vw, 6rem);
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
+        .metric-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
             margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .metric-description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
         }
 
         .metric-label {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
         }
 
-        .impact-metric p {
+        .metric-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .metric-list li {
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: 0.9375rem;
+            line-height: 1.5;
+            padding-left: 1rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            width: 4px;
+            height: 4px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
         }
 
         /* Quote Section */
@@ -879,112 +903,52 @@
             padding: 8rem 2rem;
         }
 
-        .contact-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
-            align-items: start;
-            max-width: 1000px;
+        .contact-cta {
+            max-width: 700px;
             margin: 0 auto;
+            text-align: center;
         }
 
-        @media (max-width: 900px) {
-            .contact-wrapper {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-        }
-
-        .contact-info h2 {
-            font-size: clamp(2rem, 4vw, 2.75rem);
+        .contact-cta h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 700;
             margin-bottom: 1rem;
         }
 
-        .contact-info p {
+        .contact-cta p {
             color: var(--text-secondary);
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             line-height: 1.7;
+            margin-bottom: 2.5rem;
         }
 
-        .contact-form {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 2.5rem;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        @media (max-width: 500px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            background: var(--bg-secondary);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 1rem 1.25rem;
-            font-size: 1rem;
-            color: var(--text-primary);
-            font-family: inherit;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.1);
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: var(--text-muted);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-submit {
-            width: 100%;
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
             background: linear-gradient(135deg, var(--accent-blue), #0066CC);
             color: white;
-            border: none;
-            padding: 1.125rem 2rem;
-            border-radius: 10px;
-            font-size: 1rem;
+            padding: 1.25rem 3rem;
+            border-radius: 12px;
+            font-size: 1.125rem;
             font-weight: 600;
-            cursor: pointer;
+            text-decoration: none;
             transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
         }
 
-        .form-submit:hover {
+        .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(0, 149, 255, 0.4);
+            box-shadow: 0 12px 40px rgba(0, 149, 255, 0.5);
         }
 
-        .form-submit svg {
-            width: 20px;
-            height: 20px;
+        .cta-button svg {
+            width: 22px;
+            height: 22px;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover svg {
+            transform: translateX(4px);
         }
 
         /* Footer */
@@ -1805,19 +1769,34 @@
             </div>
             <div class="impact-grid">
                 <div class="impact-metric fade-in">
-                    <div class="metric-number">50%</div>
-                    <div class="metric-label">Faster Delivery</div>
-                    <p>Accelerated cycles with AI copilots</p>
+                    <h3 class="metric-title">Speed & Productivity</h3>
+                    <p class="metric-description">AI copilots and automated workflows accelerate delivery across the entire SDLC.</p>
+                    <div class="metric-label">Impact:</div>
+                    <ul class="metric-list">
+                        <li>Faster delivery cycles</li>
+                        <li>Less engineering effort</li>
+                        <li>Earlier releases and higher output with the same team</li>
+                    </ul>
                 </div>
                 <div class="impact-metric fade-in">
-                    <div class="metric-number">40%</div>
-                    <div class="metric-label">Less Rework</div>
-                    <p>Fewer defects, consistent quality</p>
+                    <h3 class="metric-title">Quality & Consistency</h3>
+                    <p class="metric-description">AI-native practices reduce defects and drive consistent standards across distributed teams.</p>
+                    <div class="metric-label">Impact:</div>
+                    <ul class="metric-list">
+                        <li>Fewer defects</li>
+                        <li>Reduction in rework</li>
+                        <li>Stable releases with fewer quality issues</li>
+                    </ul>
                 </div>
                 <div class="impact-metric fade-in">
-                    <div class="metric-number">3x</div>
-                    <div class="metric-label">Scale Faster</div>
-                    <p>Reusable agents across projects</p>
+                    <h3 class="metric-title">Scale</h3>
+                    <p class="metric-description">AI automation reduces operational cost and scales through reutilization of agents and workflows.</p>
+                    <div class="metric-label">Impact:</div>
+                    <ul class="metric-list">
+                        <li>Lower cost per feature delivered</li>
+                        <li>Reduced cost of maintenance and late fixes</li>
+                        <li>Reusable agents accelerate all future initiatives</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -2150,34 +2129,16 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-info fade-in">
-                    <h2>Let's Build Together</h2>
-                    <p>Start your AI Native transformation today.</p>
-                </div>
-                <form class="contact-form fade-in">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" id="name" placeholder="Name">
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" placeholder="Email">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="company" placeholder="Company">
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" placeholder="Message"></textarea>
-                    </div>
-                    <button type="submit" class="form-submit">
-                        Get Started
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </button>
-                </form>
+            <div class="contact-cta fade-in">
+                <h2>Let's Build Together</h2>
+                <p>Start your AI Native transformation today.</p>
+                <a href="https://www.intive.com/contact" target="_blank" class="cta-button">
+                    Get in Touch
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
@@ -2214,13 +2175,6 @@
 
             document.querySelectorAll('.fade-in').forEach(el => {
                 observer.observe(el);
-            });
-
-            // Form submission prevention (mockup)
-            const form = document.querySelector('.contact-form');
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                alert('This is a demo form. In production, this would submit your information.');
             });
 
             // AI Readiness Quiz Logic
